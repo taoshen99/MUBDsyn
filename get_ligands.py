@@ -7,8 +7,10 @@ from rdkit.Chem import rdmolops
 from rdkit.Chem import Lipinski
 from rdkit.Chem import Crippen
 from rdkit.Chem.MolStandardize import rdMolStandardize
+
 from dimorphite_dl import DimorphiteDL
 import pandas as pd
+
 import argparse
 
 
@@ -26,6 +28,7 @@ class Cure():
         mol = self.lfc.choose(mol)
         smi_charged = self.charge.protonate(Chem.MolToSmiles(mol))
         return smi_charged
+
 
 def main(
         Ligand_data,
@@ -258,6 +261,7 @@ def main(
     len_s_list = len(s_list)
     with open(Diverse_ligands_len, 'w') as fl:
         fl.write(str(len_s_list))
+
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='get unbiased ligand set')
