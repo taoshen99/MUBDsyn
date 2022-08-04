@@ -11,6 +11,7 @@ This open source repository provides the implementation of MUBD-DecoyMaker3.0.
 ![Figure from manuscript](figures/model.png)
 
 ## Requirements
+
 MUBD-DecoyMaker3.0 employs [REINVENT](https://github.com/MolecularAI/Reinvent) to generate virtual decoys. We recommend users to install this tool as instructed. This `conda` environment called `reinvent.v3.2` is used for decoy generation. We have modified the distributed packages `reinvent_chemistry` and `reinvent_scoring` to add scoring functions for MUBD:
 1) Clone this repository and navigate to it.
 2) Merge modifications to original `reinvent_chemistry` and `reinevnt_scoring` :
@@ -21,3 +22,13 @@ Another `conda` environment called `MUBD3.0` is created for pre-post-processing:
 ```
 $ conda env create -f MUBD3.0.yml
 ```
+
+## Usage
+
+The test case of ACM Agonists is employed to illustrate the usage of MUBD-DecoyMaker3.0. All source files can be found in `resources`. 
+
+### Get unbiased ligand set (ULS)
+Run `get_ligands.py` to process the raw ligand set. This script takes raw ligands in the representation of SMILES `raw_actives.smi` as input and output unbiased ligand set `Diverse_ligands.csv`, `Diverse_ligands_PS.csv`, `Diverse_ligands_PS_maxmin.csv`, `Diverse_ligands_sims_maxmin.txt`, `Diverse_ligands_len.txt`. Please use the `--cure` option to preprocess the SMILES if no curation is performed before.
+```
+$ conda activate MUBD3.0
+(MUBD3.0) $ python get_ligands.py
