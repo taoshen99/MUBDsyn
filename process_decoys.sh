@@ -1,16 +1,15 @@
 #!/usr/bin/bash
-source activate MUBD3.0
-a=0
-my_var=$(cat Diverse_ligands_len.txt)
+idx=0
+len=$(cat Diverse_ligands_len.txt)
 echo start molecular clustering
 
-while [ $a -lt $my_var ]
+while [ $idx -lt $len ]
 do
-    echo clustering potential decoys \for ligand_$a, $[$my_var-$a-1] ligands left
-    export a
+    echo clustering potential decoys \for ligand_$idx, $[$len-$idx-1] ligands left
+    export idx
     python agglomerative_clustering.py
-    let "a++"
-    echo ligand_$[$a-1] finished
+    let "idx++"
+    echo ligand_$[$idx-1] finished
 done
 
 echo molecular clustering finished
@@ -18,4 +17,4 @@ echo pooling all decoys
 
 python pool_decoys.py
 
-echo pooling finished, processing finished
+echo pooling finished, postprocessing finished
