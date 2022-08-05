@@ -28,7 +28,7 @@ $ conda env create -f MUBD3.0.yml
 The test case of ACM Agonists is employed to illustrate the usage of MUBD-DecoyMaker3.0. All source files can be found in `resources`. 
 
 ### Get unbiased ligand set (ULS)
-Run `get_ligands.py` to process the raw ligand set. This script takes raw ligands in the representation of SMILES `raw_actives.smi` as input and output unbiased ligand set `Diverse_ligands.csv`, `Diverse_ligands_PS.csv`, `Diverse_ligands_PS_maxmin.csv`, `Diverse_ligands_sims_maxmin.txt`, `Diverse_ligands_len.txt`. Please use the `--cure` option to preprocess the SMILES if no curation is performed before.
+Run `get_ligands.py` to process the raw ligand set. This script takes raw ligands in the representation of SMILES `raw_actives.smi` as input and outputs unbiased ligand set `Diverse_ligands.csv`, `Diverse_ligands_PS.csv`, `Diverse_ligands_PS_maxmin.csv`, `Diverse_ligands_sims_maxmin.txt`, `Diverse_ligands_len.txt`. Please use the `--cure` option to preprocess the SMILES if no curation is performed before.
 ```
 $ conda activate MUBD3.0
 (MUBD3.0) $ python get_ligands.py
@@ -41,5 +41,5 @@ $ conda activate MUBD3.0
 $ mkdir output
 $ chmod +x ./gen_decoys.sh
 $ conda activate reinvent.v3.2
-$ ./gen_decoys.sh
+(reinvent.v3.2) $ ./gen_decoys.sh
 ```
