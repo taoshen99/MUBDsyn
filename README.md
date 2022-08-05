@@ -28,7 +28,7 @@ $ conda env create -f MUBD3.0.yml
 The test case of ACM Agonists is employed to illustrate the usage of MUBD-DecoyMaker3.0. All source files can be found in `resources`. 
 
 ### Get unbiased ligand set (ULS)
-Run `get_ligands.py` to process the raw ligand set. This script takes raw ligands in the representation of SMILES `raw_actives.smi` as input and outputs unbiased ligand set `Diverse_ligands.csv`, `Diverse_ligands_PS.csv`, `Diverse_ligands_PS_maxmin.csv`, `Diverse_ligands_sims_maxmin.txt`, `Diverse_ligands_len.txt`. Please use the `--cure` option to preprocess the SMILES if no curation is performed before.
+Run `get_ligands.py` to process the raw ligand set. This script takes raw ligands in the representation of SMILES `raw_actives.smi` as input and outputs unbiased ligand set `Diverse_ligands.csv`. Another four property profiles `Diverse_ligands_PS.csv`, `Diverse_ligands_PS_maxmin.csv`, `Diverse_ligands_sims_maxmin.txt` and `Diverse_ligands_len.txt` are also recorded. Please use the `--cure` option to preprocess the SMILES if no curation is performed before.
 ```
 $ conda activate MUBD3.0
 (MUBD3.0) $ python get_ligands.py
@@ -42,4 +42,12 @@ $ mkdir output
 $ chmod +x ./gen_decoys.sh
 $ conda activate reinvent.v3.2
 (reinvent.v3.2) $ ./gen_decoys.sh
+```
+
+### Get unbiased decoy set (UDS)
+After decoy generation, each potential decoy set for `ligand_$idx` is stored in `output/ligand_$idx/results/scaffold_memory.csv`. Decoy refinement including SMILES curation and molecular clustering are performed to get unbiased decoy set `Final_decoys.csv`. We provide `process_decoys.sh` to automatically run `agglomerative_clustering.py` and `pool_decoys.py`.
+```
+$ chmod +x ./process_decoys.sh
+$ conda activate MUBD3.0
+(MUBD3.0) $ ./process_decoys.sh
 ```
