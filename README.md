@@ -51,3 +51,9 @@ $ chmod +x ./process_decoys.sh
 $ conda activate MUBD3.0
 (MUBD3.0) $ ./process_decoys.sh
 ```
+
+## Validation
+Basic validation is conducted based on four metrics. Please go through the notebook `basic_validation.ipynb` for more details.
+```
+$ conda activate MUBD3.0
+(MUBD3.0) $ jupyter notebook
