@@ -1,13 +1,12 @@
 #!/usr/bin/bash
-source activate reinvent.v3.2
-a=5
-my_var=$(cat Diverse_ligands_len.txt)
-while [ $a -lt $my_var ]
+idx=0
+len=$(cat Diverse_ligands_len.txt)
+while [ $idx -lt $len ]
 do
-    echo Generating decoys \for ligand_$a, $[$my_var-$a-1] ligands left
-    export a
+    echo Generating decoys \for ligand_$idx, $[$len-$idx-1] ligands left
+    export idx
     python mk_config.py
-    python ~/project/reinvent/Reinvent/input.py output/ligand_$a/ligand_$a.json
-    let "a++"
-    echo ligand_$[$a-1] finished
+    python </path/to/REINVENT>/input.py output/ligand_$idx/ligand_$idx.json
+    let "idx++"
+    echo ligand_$[$idx-1] finished
 done

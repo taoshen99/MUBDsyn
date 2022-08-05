@@ -3,16 +3,17 @@ import os
 import json
 import pandas as pd
 
+#change path variables as user defined 
 reinvent_dir = os.path.expanduser(
-    "~/project/reinvent/Reinvent")
+    "</path/to/REINVENT>")
 reinvent_env = os.path.expanduser("~/anaconda3/envs/reinvent.v3.2")
 
-idx = os.environ["a"]
-output_dir = os.path.expanduser("~/project/MUBD/M2R/output/ligand_" + idx)
+idx = os.environ["idx"]
+output_dir = os.path.expanduser("</path/to/MUBD3.0>/output/ligand_" + idx)
 output_json_filename = "ligand_" + idx + ".json"
 active_idx = "active_" + idx
 
-MUBD_dir = os.path.expanduser("~/project/MUBD/M2R")
+MUBD_dir = os.path.expanduser("</path/to/MUBD3.0>")
 diverse_ligands_path = os.path.join(MUBD_dir, "Diverse_ligands.csv")
 diverse_ligands_ps_path = os.path.join(MUBD_dir, "Diverse_ligands_PS.csv")
 diverse_ligands_ps_max_min_path = os.path.join(
@@ -53,7 +54,7 @@ configuration = {
 configuration["logging"] = {
     "sender": "http://0.0.0.1",
     "recipient": "local",
-    "logging_frequency": 100,
+    "logging_frequency": 1000,
     "logging_path": os.path.join(output_dir, "progress.log"),
     "result_folder": os.path.join(output_dir, "results"),
     "job_name": "MUBD Demo",
@@ -75,10 +76,9 @@ configuration["parameters"]["inception"] = {
     "sample_size": 10
 }
 
-model_path = '/home/shentao/project/reinvent/ReinventCommunity-master/notebooks'
 configuration["parameters"]["reinforcement_learning"] = {
-    "prior": os.path.join(model_path, "models/random.prior.new"),
-    "agent": os.path.join(model_path, "models/random.prior.new"),
+    "prior": os.path.join(MUBD_dir, "models/random.prior.new"),
+    "agent": os.path.join(MUBD_dir, "models/random.prior.new"),
     "n_steps": 2000,
     "sigma": 128,
     "learning_rate": 0.0001,
