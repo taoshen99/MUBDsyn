@@ -3,7 +3,7 @@ import os
 import json
 import pandas as pd
 
-#change path variables as user defined 
+# change path variables as user defined
 reinvent_dir = os.path.expanduser(
     "</path/to/REINVENT>")
 reinvent_env = os.path.expanduser("~/anaconda3/envs/reinvent.v3.2")
@@ -204,7 +204,7 @@ scoring_function = {
                     "diverse_ligands_path": diverse_ligands_path,
                     "active_index": active_idx
                 }
-                },
+            },
 
         {
                 "component_type": "simp",
