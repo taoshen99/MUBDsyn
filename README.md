@@ -31,7 +31,7 @@ $ conda env create -f MUBD3.0.yml
 `ACM Agonists` is used as a test case to demonstrate how to build MUBD-ACM-AGO data set with MUBD-DecoyMaker3.0. All the test files are included in the directory of `resources`. 
 
 ### Get unbiased ligand set (ULS)
-Run `get_ligands.py` to process the raw ligand set. This script takes raw ligands in the representation of SMILES `raw_actives.smi` as input and outputs unbiased ligand set `Diverse_ligands.csv`. Another four property profiles `Diverse_ligands_PS.csv`, `Diverse_ligands_PS_maxmin.csv`, `Diverse_ligands_sims_maxmin.txt` and `Diverse_ligands_len.txt` are also recorded. Please use the `--cure` option to preprocess the SMILES if no curation is performed before.
+Run `get_ligands.py` to process the raw ligand set. This script takes raw ligands in the representation of SMILES `raw_actives.smi` as input and outputs unbiased ligand set `Diverse_ligands.csv`. Another four property profiles `Diverse_ligands_PS.csv`, `Diverse_ligands_PS_maxmin.csv`, `Diverse_ligands_sims_maxmin.txt` and `Diverse_ligands_len.txt` are also recorded. Please use the `--cure` option to preprocess the SMILES if no curation is performed before. (?1. cure是写错了cura还是专门用cure让用户理解该选项是用于未准备分子的“救治”？2. curation的内容要列一下，包括哪些？) 
 ```
 $ conda activate MUBD3.0
 (MUBD3.0) $ python get_ligands.py
