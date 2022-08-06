@@ -21,7 +21,7 @@ As [REINVENT](https://github.com/MolecularAI/Reinvent) is used to make virtual d
 ```
 $ cp -r reinvent_chemistry/ reinvent_scoring/ ~/anaconda3/envs/reinvent.v3.2/lib/python3.7/site-packages
 ```
-Another `conda` environment called `MUBD3.0` is created for pre-post-processing: 
+create a `conda` environment called `MUBD3.0` (for preprocessing and postprocessing): 
 ```
 $ conda env create -f MUBD3.0.yml
 ```
