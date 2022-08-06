@@ -37,7 +37,7 @@ $ conda activate MUBD3.0
 (MUBD3.0) $ python get_ligands.py
 ```
 
-### Generate virtual decoys
+### Generate potential decoy set
 
 `mk_config.py` writes out the configuration for MUBD3.0 virtual decoy generation. In order to automatically set up the configuration for each ligand and proceed to the next ligand, we provide `gen_decoys.sh`. Please replace the `</path/to/REINVENT>` and `</path/to/MUBD3.0>` in the scripts with user-defined directories.
 ```
@@ -47,8 +47,8 @@ $ conda activate reinvent.v3.2
 (reinvent.v3.2) $ ./gen_decoys.sh
 ```
 
-### Get virtual unbiased decoy set (UDS)
-After decoy generation, each potential decoy set for `ligand_$idx` is stored in `output/ligand_$idx/results/scaffold_memory.csv`. Decoy refinement including SMILES curation and molecular clustering are performed to get unbiased decoy set `Final_decoys.csv`. We provide `process_decoys.sh` to automatically run `agglomerative_clustering.py` and `pool_decoys.py`.
+### Get unbiased decoy set (UDS)
+The file `output/ligand_$idx/results/scaffold_memory.csv` contains the potential decoy set for `ligand_$idx`. To get the unbiased decoy set (`Final_decoys.csv`), run `process_decoys.sh` to refine the potential decoys by SMILES curation and structural clustering (`agglomerative_clustering.py`).   and `pool_decoys.py` (这个py文件不知道跟哪里，具体是做什么操作, 请修改). 
 ```
 $ chmod +x ./process_decoys.sh
 $ conda activate MUBD3.0
@@ -56,7 +56,7 @@ $ conda activate MUBD3.0
 ```
 
 ## Validation
-Basic validation is conducted based on four metrics. Please go through the notebook `basic_validation.ipynb` for more details.
+Basically, The MUBD is validated and measured with four metrics. Please go through the notebook `basic_validation.ipynb` for more details.
 ```
 $ conda activate MUBD3.0
 (MUBD3.0) $ jupyter notebook
