@@ -1,4 +1,4 @@
-# MUBD-DecoyMaker3.0: Making Maximal Unbiased Benchmarking Data Sets with Deep Reinforcement Learning
+# MUBD-DecoyMaker 3.0: Making Maximal Unbiased Benchmarking Data Sets with Deep Reinforcement Learning
 
 ## Introduction
 
