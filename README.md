@@ -16,7 +16,7 @@ Below is how to implement and run MUBD-DecoyMaker3.0.
 ## Requirements
 
 As [REINVENT](https://github.com/MolecularAI/Reinvent) is used to make virtual decoys of MUBD 3.0, users are required to install the `conda` environment `reinvent.v3.2`. Please note we have modified the packages `reinvent_chemistry` and `reinvent_scoring` here in order to include our scoring functions specific for MUBD:
-1) Clone this repository and navigate to it.
+1) Clone this repository and navigate to it(指的是否是进入该目录).
 2) Merge modifications to original `reinvent_chemistry` and `reinevnt_scoring` :
 ```
 $ cp -r reinvent_chemistry/ reinvent_scoring/ ~/anaconda3/envs/reinvent.v3.2/lib/python3.7/site-packages
