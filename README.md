@@ -37,9 +37,9 @@ $ conda activate MUBD3.0
 (MUBD3.0) $ python get_ligands.py
 ```
 
-### Generate virtual decoys
+### Generate (virtual) unbiased decoy set (UDS)
 
-`mk_config.py` writes out the configuration for MUBD3.0 virtual decoy generation. In order to automatically set up the configuration for each ligand and proceed to the next ligand, we provide `gen_decoys.sh`. Please replace the `</path/to/REINVENT>` and `</path/to/MUBD3.0>` in scripts with user defined directories.
+`mk_config.py` writes out the configuration for MUBD3.0 virtual decoy generation. In order to automatically set up the configuration for each ligand and proceed to the next ligand, we provide `gen_decoys.sh`. Please replace the `</path/to/REINVENT>` and `</path/to/MUBD3.0>` in the scripts with user-defined directories.
 ```
 $ mkdir output
 $ chmod +x ./gen_decoys.sh
