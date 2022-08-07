@@ -15,20 +15,31 @@ Below is how to implement and run MUBD-DecoyMaker3.0.
 
 ## Requirements
 
-As [REINVENT](https://github.com/MolecularAI/Reinvent) is used to make virtual decoys of MUBD 3.0, users are required to install the `conda` environment `reinvent.v3.2`. Please note we have modified the packages `reinvent_chemistry` and `reinvent_scoring` here in order to include our scoring functions specific for MUBD:
-1) Clone this repository and navigate to it(指的是否是进入该目录).
-2) Merge modifications to original `reinvent_chemistry` and `reinevnt_scoring` :
+As [REINVENT](https://github.com/MolecularAI/Reinvent) is used to make virtual decoys of MUBD 3.0, users are required to install this tool as instructed. The corresponding `conda` environment named `reinvent.v3.2` is created for virtual decoy generation. Please note we have modified the [PyPI](pypi.org) packages `reinvent_chemistry` and `reinvent_scoring` here in order to include our scoring functions specific for MUBD. Another `conda` environment named `MUBD3.0` is also created for preprocessing and postprocessing.
+
+1) Install [REINVENT](https://github.com/MolecularAI/Reinvent).
+
+2) Clone this repository and navigate to it:
+```bash
+$ git clone https://github.com/Sooooooap/MUBD3.0.git
+$ cd MUBD3.0
 ```
+
+3) Copy the modified packages `reinvent_chemistry` and `reinevnt_scoring` to replace the original ones:
+```bash
+$ conda activate reinvent.v3.2 
+$ pip show reinvent_chemistry # Location: ~/anaconda3/envs/reinvent.v3.2/lib/python3.7/site-packages
 $ cp -r reinvent_chemistry/ reinvent_scoring/ ~/anaconda3/envs/reinvent.v3.2/lib/python3.7/site-packages
 ```
-create a `conda` environment called `MUBD3.0` (for preprocessing and postprocessing): 
-```
+
+4) Create the `conda` environment called `MUBD3.0`:
+```bash
 $ conda env create -f MUBD3.0.yml
 ```
 
 ## Usage
 
-`ACM Agonists` is used as a test case to demonstrate how to build MUBD-ACM-AGO data set with MUBD-DecoyMaker3.0. All the test files are included in the directory of `resources`. 
+`ACM Agonists` is used as a test case to demonstrate how to build MUBD-ACM-AGO data set with MUBD-DecoyMaker 3.0. All the test files are included in the directory of `resources`. 
 
 ### Get unbiased ligand set (ULS)
 Run `get_ligands.py` to process the raw ligand set. This script takes raw ligands in the representation of SMILES `raw_actives.smi` as input and outputs unbiased ligand set `Diverse_ligands.csv`. Another four property profiles `Diverse_ligands_PS.csv`, `Diverse_ligands_PS_maxmin.csv`, `Diverse_ligands_sims_maxmin.txt` and `Diverse_ligands_len.txt` are also recorded. Please use the `--cure` option to preprocess the SMILES if no curation is performed before. (?1. cure是写错了cura还是专门用cure让用户理解该选项是用于未准备分子的“救治”？2. curation的内容要列一下，包括哪些？) 
