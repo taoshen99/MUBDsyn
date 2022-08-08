@@ -42,8 +42,10 @@ $ conda env create -f MUBD3.0.yml
 `ACM Agonists` is used as a test case to demonstrate how to build MUBD-ACM-AGO data set with MUBD-DecoyMaker 3.0. All the test files are included in the directory of `resources`. 
 
 ### Get unbiased ligand set (ULS)
-Run `get_ligands.py` to process the raw ligand set. This script takes raw ligands in the representation of SMILES `raw_actives.smi` as input and outputs unbiased ligand set `Diverse_ligands.csv`. Another four property profiles `Diverse_ligands_PS.csv`, `Diverse_ligands_PS_maxmin.csv`, `Diverse_ligands_sims_maxmin.txt` and `Diverse_ligands_len.txt` are also recorded. Please use the `--cure` option to preprocess the SMILES if no curation is performed before. (?1. cure是写错了cura还是专门用cure让用户理解该选项是用于未准备分子的“救治”？2. curation的内容要列一下，包括哪些？) 
-```
+Run `get_ligands.py` to process the raw ligand set. This script takes raw ligands in the representation of SMILES `raw_actives.smi` as input and outputs unbiased ligand set `Diverse_ligands.csv`. Another four property profiles `Diverse_ligands_PS.csv`, `Diverse_ligands_PS_maxmin.csv`, `Diverse_ligands_sims_maxmin.txt` and `Diverse_ligands_len.txt` are also recorded.
+
+IMPORTANT: Ligand curation including standardizing molecule, stripping salts and charging at a specific range of pH (implemented by [Dimorphite-DL](https://github.com/Sulstice/dimorphite_dl)) is required if no curation is performed before. Please use `--cure` option of `get_ligands.py` to realize this (raw ligands in this test case have been cured before). Please use `--help` option to show all available options.
+```bash
 $ conda activate MUBD3.0
 (MUBD3.0) $ python get_ligands.py
 ```
@@ -59,7 +61,7 @@ $ conda activate reinvent.v3.2
 ```
 
 ### Get unbiased decoy set (UDS)
-The file `output/ligand_$idx/results/scaffold_memory.csv` contains the potential decoy set for `ligand_$idx`. To get the unbiased decoy set (`Final_decoys.csv`), run `process_decoys.sh` to refine the potential decoys by SMILES curation and structural clustering (`agglomerative_clustering.py`).   and `pool_decoys.py` (这个py文件不知道跟哪里，具体是做什么操作, 请修改). 
+The file `output/ligand_$idx/results/scaffold_memory.csv` contains the potential decoy set for `ligand_$idx`. To get the unbiased decoy set `Final_decoys.csv`, potential decoys are refined by SMILES curation, structural clustering and pooling all decoys annotated with their property profiles. We provide `process_decoys.sh` which automatically runs `curing_clustering.py` and `pool_decoys.py` as the realization.
 ```
 $ chmod +x ./process_decoys.sh
 $ conda activate MUBD3.0
