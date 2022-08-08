@@ -9,7 +9,7 @@ MUBD-DecoyMaker 3.0 is a brand-new computational software to make Maximal Unbias
 2. The criteria (or rule) for an ideal decoy previously defined in the earlier versions are integrated into a new scoring function for RL to fine-tune the generator.
 
 
-Below is how to implement and run MUBD-DecoyMaker3.0.
+Below is how to implement and run MUBD-DecoyMaker 3.0.
 
 ![Figure from manuscript](figures/model.png)
 
@@ -52,7 +52,7 @@ $ conda activate MUBD3.0
 
 ### Generate potential decoy set
 
-`mk_config.py` writes out the configuration for MUBD3.0 virtual decoy generation. In order to automatically set up the configuration for each ligand and proceed to the next ligand, we provide `gen_decoys.sh`. Please replace the `</path/to/REINVENT>` and `</path/to/MUBD3.0>` in the scripts with user-defined directories.
+`mk_config.py` writes out the configuration for MUBD 3.0 virtual decoy generation. In order to automatically set up the configuration for each ligand and proceed to the next ligand, we provide `gen_decoys.sh`. Please replace the `</path/to/REINVENT>` and `</path/to/MUBD3.0>` in the scripts with user-defined directories.
 ```bash
 $ mkdir output
 $ chmod +x ./gen_decoys.sh
