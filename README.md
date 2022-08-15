@@ -69,7 +69,7 @@ $ conda activate MUBD3.0
 ```
 
 ## Validation
-Basically, The MUBD is validated and measured with four metrics. Please go through the notebook `basic_validation.ipynb` for more details.
+Basically, the MUBD is validated and measured with four metrics. Please go through the notebook `basic_validation.ipynb` for more details.
 ```bash
 $ conda activate MUBD3.0
 (MUBD3.0) $ jupyter notebook
