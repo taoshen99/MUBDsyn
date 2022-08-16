@@ -41,13 +41,13 @@ $ conda env create -f MUBD3.0.yml
 
 `ACM Agonists` is used as a test case to demonstrate how to build MUBD-ACM-AGO data set with MUBD-DecoyMaker 3.0. All the test files are included in the directory of `resources`. 
 
-### Get unbiased ligand set (ULS)
-Run `get_ligands.py` to process the raw ligand set. This script takes raw ligands in the representation of SMILES `raw_actives.smi` as input and outputs unbiased ligand set `Diverse_ligands.csv`. Another four property profiles `Diverse_ligands_PS.csv`, `Diverse_ligands_PS_maxmin.csv`, `Diverse_ligands_sims_maxmin.txt` and `Diverse_ligands_len.txt` are also recorded.
+### Build unbiased ligand set (ULS)
+Run `build_uls.py` to process the raw ligand set. This script takes raw ligands in the representation of SMILES `raw_actives.smi` as input and outputs unbiased ligand set `Diverse_ligands.csv`. Another four property profiles `Diverse_ligands_PS.csv`, `Diverse_ligands_PS_maxmin.csv`, `Diverse_ligands_sims_maxmin.txt` and `Diverse_ligands_len.txt` are also recorded.
 
-IMPORTANT: Ligand curation including standardizing molecule, stripping salts and charging at a specific range of pH (implemented by [Dimorphite-DL](https://github.com/Sulstice/dimorphite_dl)) is required if no curation is performed before. Please use `--cure` option of `get_ligands.py` to realize this (raw ligands in this test case have been cured before). Please use `--help` option to show all available options.
+IMPORTANT: Ligand curation including standardizing molecule, stripping salts and charging at a specific range of pH (implemented by [Dimorphite-DL](https://github.com/Sulstice/dimorphite_dl)) is required if no curation is performed before. Please use `--cure` option of `build_uls.py` to realize this (raw ligands in this test case have been cured before). Please use `--help` option to show all available options.
 ```bash
 $ conda activate MUBD3.0
-(MUBD3.0) $ python get_ligands.py
+(MUBD3.0) $ python build_uls.py
 ```
 
 ### Generate potential decoy set
@@ -60,12 +60,12 @@ $ conda activate reinvent.v3.2
 (reinvent.v3.2) $ ./gen_decoys.sh
 ```
 
-### Get unbiased decoy set (UDS)
-The file `output/ligand_$idx/results/scaffold_memory.csv` contains the potential decoy set for `ligand_$idx`. To get the unbiased decoy set `Final_decoys.csv`, potential decoys are refined by SMILES curation, structural clustering and pooling all decoys annotated with their property profiles. We provide `process_decoys.sh` which automatically runs `curing_clustering.py` and `pool_decoys.py` as the realization.
+### Build unbiased decoy set (UDS)
+The file `output/ligand_$idx/results/scaffold_memory.csv` contains the potential decoy set for `ligand_$idx`. To get the unbiased decoy set `Final_decoys.csv`, potential decoys are refined by SMILES curation, structural clustering and pooling all decoys annotated with their property profiles. We provide `build_uds.sh` which automatically runs `curing_clustering.py` and `pool_decoys.py` as the realization.
 ```bash
-$ chmod +x ./process_decoys.sh
+$ chmod +x ./build_uds.sh
 $ conda activate MUBD3.0
-(MUBD3.0) $ ./process_decoys.sh
+(MUBD3.0) $ ./build_uds.sh
 ```
 
 ## Validation
