@@ -14,7 +14,7 @@ import pandas as pd
 import argparse
 
 
-class Cure():
+class Curate():
     def __init__(self):
         self.lfc = rdMolStandardize.LargestFragmentChooser()
         self.charge = DimorphiteDL(
@@ -43,8 +43,8 @@ def main(
 
     smi_preprocessed = []
 
-    if kwargs['cure']:
-        preprocess = Cure()
+    if kwargs['curate']:
+        preprocess = Curate()
         for i, smi in enumerate(List_Smile):
             if Chem.MolFromSmiles(smi):
                 smi_list = preprocess(smi)
@@ -286,8 +286,8 @@ if __name__ == '__main__':
         '--o5',
         help='output number of diverse ligands',
         default='Diverse_ligands_len.txt')
-    parser.add_argument('--cure',
+    parser.add_argument('--curate',
                         action='store_true',
-                        help='cure raw SMILES')
+                        help='curate raw SMILES')
     args = parser.parse_args()
-    main(args.i, args.o1, args.o2, args.o3, args.o4, args.o5, cure=args.cure)
+    main(args.i, args.o1, args.o2, args.o3, args.o4, args.o5, curate=args.curate)

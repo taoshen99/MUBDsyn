@@ -44,7 +44,7 @@ $ conda env create -f MUBD3.0.yml
 ### Build unbiased ligand set (ULS)
 Run `build_uls.py` to process the raw ligand set. This script takes raw ligands in the representation of SMILES `raw_actives.smi` as input and outputs unbiased ligand set `Diverse_ligands.csv`. Another four property profiles `Diverse_ligands_PS.csv`, `Diverse_ligands_PS_maxmin.csv`, `Diverse_ligands_sims_maxmin.txt` and `Diverse_ligands_len.txt` are also recorded.
 
-IMPORTANT: Ligand curation including standardizing molecule, stripping salts and charging at a specific range of pH (implemented by [Dimorphite-DL](https://github.com/Sulstice/dimorphite_dl)) is required if no curation is performed before. Please use `--cure` option of `build_uls.py` to realize this (raw ligands in this test case have been cured before). Please use `--help` option to show all available options.
+IMPORTANT: Ligand curation including standardizing molecule, stripping salts and charging at a specific range of pH (implemented by [Dimorphite-DL](https://github.com/Sulstice/dimorphite_dl)) is required if no curation is performed before. Please use `--curate` option of `build_uls.py` to realize this (raw ligands in this test case have been cured before). Please use `--help` option to show all available options.
 ```bash
 $ conda activate MUBD3.0
 (MUBD3.0) $ python build_uls.py
