@@ -25,7 +25,7 @@ $ git clone https://github.com/Sooooooap/MUBD3.0.git
 $ cd MUBD3.0
 ```
 
-3) Copy the modified packages `reinvent_chemistry` and `reinevnt_scoring` to replace the original ones:
+3) Replace the packages `reinvent_chemistry` and `reinvent_scoring` with our modified ones:
 ```bash
 $ conda activate reinvent.v3.2 
 $ pip show reinvent_chemistry # Location: ~/anaconda3/envs/reinvent.v3.2/lib/python3.7/site-packages
@@ -39,12 +39,12 @@ $ conda env create -f MUBD3.0.yml
 
 ## Usage
 
-`ACM Agonists` is used as a test case to demonstrate how to build MUBD-ACM-AGO data set with MUBD-DecoyMaker 3.0. All the test files are included in the directory of `resources`. 
+`ACM Agonists` is used as a test case to demonstrate how to build MUBD with MUBD-DecoyMaker 3.0. All the test files are in the directory of `resources`. 
 
 ### Build unbiased ligand set (ULS)
-Run `build_uls.py` to process the raw ligand set. This script takes raw ligands in the representation of SMILES `raw_actives.smi` as input and outputs unbiased ligand set `Diverse_ligands.csv`. Another four property profiles `Diverse_ligands_PS.csv`, `Diverse_ligands_PS_maxmin.csv`, `Diverse_ligands_sims_maxmin.txt` and `Diverse_ligands_len.txt` are also recorded.
+Run `build_uls.py` to process the raw ligand set. This script takes the raw ligands in SMILES representation as input (`raw_actives.smi`) and puts out the unbiased ligand set (`Diverse_ligands.csv`). Four files regarding ligand properties, i.e. `Diverse_ligands_PS.csv`, `Diverse_ligands_PS_maxmin.csv`, `Diverse_ligands_sims_maxmin.txt` and `Diverse_ligands_len.txt`, are also generated.
 
-IMPORTANT: Ligand curation including standardizing molecule, stripping salts and charging at a specific range of pH (implemented by [Dimorphite-DL](https://github.com/Sulstice/dimorphite_dl)) is required if no curation is performed before. Please use `--curate` option of `build_uls.py` to realize this (raw ligands in this test case have been cured before). Please use `--help` option to show all available options.
+IMPORTANT: Ligand curation, including molecule standardization, salt removal and protonization (charge) at a specific range of pH (implemented by [Dimorphite-DL](https://github.com/Sulstice/dimorphite_dl)), is required if the ligands are not curated. For ligand curation, we provide the `--curate` option in `build_uls.py`. Please note the raw ligands in this test case are curated. Also, the users may use `--help` option to see all the available options.
 ```bash
 $ conda activate MUBD3.0
 (MUBD3.0) $ python build_uls.py
