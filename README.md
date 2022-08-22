@@ -44,7 +44,7 @@ $ conda env create -f MUBD3.0.yml
 ### Build the unbiased ligand set (ULS)
 Run `build_uls.py` to process the raw ligand set. This script takes the raw ligands in SMILES representation as input (`raw_actives.smi`) and puts out the unbiased ligand set (`Diverse_ligands.csv`). Four files regarding ligand properties, i.e. `Diverse_ligands_PS.csv`, `Diverse_ligands_PS_maxmin.csv`, `Diverse_ligands_sims_maxmin.txt` and `Diverse_ligands_len.txt`, are also generated.
 
-IMPORTANT!!! Ligand curation, including molecule standardization, salt removal and protonization at a specific range of pH (implemented by [Dimorphite-DL](https://github.com/Sulstice/dimorphite_dl), is required if the ligands are not curated. For ligand curation, we provide the `--cure` option for `build_uls.py`. Please note the raw ligands in this test case are curated. Also, users may use `--help` option to see all the available options.
+IMPORTANT: Ligand curation, including molecule standardization, salt removal and protonization at a specific range of pH (implemented by [Dimorphite-DL](https://github.com/Sulstice/dimorphite_dl), is required if the ligands are not curated. For ligand curation, we provide the `--cure` option for `build_uls.py`. Please note the raw ligands in this test case are curated. Also, users may use `--help` option to see all the available options.
 ```bash
 $ conda activate MUBD3.0
 (MUBD3.0) $ python build_uls.py
@@ -52,7 +52,7 @@ $ conda activate MUBD3.0
 
 ### Generate the potential decoy set
 
-`mk_config.py` writes out the configurations for MUBD 3.0 virtual decoy generation. We provide `gen_decoys.sh` to set up the configurations specific for the ligands and loop over all the ligands. Please replace the `</path/to/REINVENT>` and `</path/to/MUBD3.0>` in the scripts with user-defined directories.
+`mk_config.py` writes out the configurations for the generation of MUBD3.0 virtual decoys. We provide `gen_decoys.sh` to iterate over all the ligands and set the configurations specific for each of them. Please replace the `</path/to/REINVENT>` and `</path/to/MUBD3.0>` in the scripts with user-defined directories.
 ```bash
 $ mkdir output
 $ chmod +x ./gen_decoys.sh
