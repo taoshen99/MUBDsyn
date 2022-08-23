@@ -61,7 +61,7 @@ $ conda activate reinvent.v3.2
 ```
 
 ### Build the unbiased decoy set (UDS 3.0)
-The file with the directory of `output/ligand_$idx/results/scaffold_memory.csv` contains the potential decoy set specific for the `ligand_$idx`. The potential decoys are refined by SMILES curation, structural clustering and pooling all the decoys annotated with their properties. We provide `build_uds.sh` which automatically runs `curing_clustering.py` and `pool_decoys.py` as the realization.To get the unbiased decoy set `Final_decoys.csv`, 
+The file with the directory of `output/ligand_$idx/results/scaffold_memory.csv` contains the potential decoy set specific for the `ligand_$idx`. The potential decoy set is refined by SMILES curation and structural clustering (script: `curing_clustering.py`). Then the unbiased decoys for each ligand were annotated with the properties and merged  (script: `merge_decoys.py`最好把脚本名字改一下) to consitute the whole data set (`Final_decoys.csv`). We provide `build_uds.sh` to automatically runs the above mentioned scripts.
 ```bash
 $ chmod +x ./build_uds.sh
 $ conda activate MUBD3.0
@@ -69,7 +69,7 @@ $ conda activate MUBD3.0
 ```
 
 ## Validation
-Basically, the MUBD is validated and measured with four metrics. Please go through the notebook `basic_validation.ipynb` for more details.
+The MUBD 3.0 is validated and measured with four metrics. Please go through the notebook `basic_validation.ipynb` for more details.
 ```bash
 $ conda activate MUBD3.0
 (MUBD3.0) $ jupyter notebook
