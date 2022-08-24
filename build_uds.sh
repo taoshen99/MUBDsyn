@@ -1,20 +1,20 @@
 #!/usr/bin/bash
 idx=0
 len=$(cat Diverse_ligands_len.txt)
-echo start molecular curing and clustering
+echo start molecular curating and clustering
 
 while [ $idx -lt $len ]
 do
-    echo curing and clustering potential decoys \for ligand_$idx, $[$len-$idx-1] ligands left
+    echo curating and clustering potential decoys \for ligand_$idx, $[$len-$idx-1] ligands left
     export idx
-    python curing_clustering.py
+    python curating_clustering.py
     let "idx++"
     echo ligand_$[$idx-1] finished
 done
 
-echo molecular curing and clustering finished
-echo pooling all decoys
+echo molecular curating and clustering finished
+echo merging all decoys
 
-python pool_decoys.py
+python merge_decoys.py
 
-echo pooling finished, refining finished
+echo merging finished, refining finished
