@@ -76,5 +76,5 @@ $ conda activate MUBD3.0
 ```
 We also provide `validate.py` to perform the validation and store the  results in the directory of `validation/results/`:
 ```bash
-$ python validate.py
+(MUBD3.0) $ python validate.py
 ```
