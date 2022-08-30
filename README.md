@@ -74,3 +74,7 @@ The MUBD 3.0 is validated and measured with four metrics. Please go through the 
 $ conda activate MUBD3.0
 (MUBD3.0) $ jupyter notebook
 ```
+We also provide `validate.py` to perform the validation and store the  results in the directory of `validation/results/`:
+```bash
+$ python validate.py
+```
