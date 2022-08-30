@@ -17,4 +17,6 @@ def BMSratio(final_decoys):
 
     print("number of unique Bemis-Murcko Atomic Frameworks: ", len_murcko)
     print("number of final decoys: ", len(s_list))
-    print("scaffold / decoy ratio:", round(ratio, 2))
+    print("scaffold / decoy ratio:", "%.2f" % ratio)
+
+    return str(len_murcko), str(len(s_list)), ("%.2f" % ratio) 

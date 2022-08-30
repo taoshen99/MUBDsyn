@@ -198,3 +198,8 @@ def plot_PDC():
     plt.plot(FC_x, FC_y_Decoy, "-", label="FormalCharge_Decoy")
     plt.legend(fontsize=8, loc="upper left")
     plt.tight_layout()
+
+    for i in os.listdir("PDC_files"):
+        f_d = os.path.join("PDC_files", i)
+        os.remove(f_d)
+    os.rmdir("PDC_files")

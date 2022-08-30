@@ -236,3 +236,8 @@ def plot_ROC():
     plt.plot([0, 1], [0, 1], color=('k'), lw=lw, linestyle='--')
 
     plt.tight_layout()
+
+    for i in os.listdir("ROC_files"):
+        f_d = os.path.join("ROC_files", i)
+        os.remove(f_d)
+    os.rmdir("ROC_files")

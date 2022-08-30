@@ -64,3 +64,5 @@ def NLBScore(diverse_ligands_PS, final_decoys):
     NLBScore = format(score, '.4f')
 
     print("NLBScore: ", NLBScore)
+
+    return NLBScore
