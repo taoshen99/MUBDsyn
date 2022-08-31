@@ -4,9 +4,7 @@ import json
 import pandas as pd
 
 # change path variables as user defined
-reinvent_dir = os.path.expanduser(
-    "</path/to/REINVENT>")
-reinvent_env = os.path.expanduser("~/anaconda3/envs/reinvent.v3.2")
+reinvent_dir = os.path.expanduser("</path/to/REINVENT>")
 
 idx = os.environ["idx"]
 output_dir = os.path.expanduser("</path/to/MUBD3.0>/output/ligand_" + idx)
