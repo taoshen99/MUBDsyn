@@ -12,8 +12,8 @@ try:
 except FileExistsError:
     pass
 
-diverse_ligands_PS = "Diverse_ligands_PS.csv"
-final_decoys = "Final_decoys.csv"
+diverse_ligands_PS = "output/ULS/Diverse_ligands_PS.csv"
+final_decoys = "output/UDS/Final_decoys.csv"
 
 num_murcko, num_comp, ratio = BMSratio(final_decoys)
 with open(os.path.join(val_dir, "BMSratio.txt"), "a") as f:
