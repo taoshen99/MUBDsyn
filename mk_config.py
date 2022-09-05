@@ -3,21 +3,21 @@ import os
 import json
 import pandas as pd
 
-# change path variables as user defined
-reinvent_dir = os.path.expanduser("</path/to/REINVENT>")
 
 idx = os.environ["idx"]
-output_dir = os.path.expanduser("</path/to/MUBD3.0>/output/ligand_" + idx)
+ULS_dir = "output/ULS"
+UDS_dir = "output/UDS/auto_train"
+os.makedirs(UDS_dir)
+output_dir = os.path.join(UDS_dir, "ligand_" + idx)
 output_json_filename = "ligand_" + idx + ".json"
 active_idx = "active_" + idx
 
-MUBD_dir = os.path.expanduser("</path/to/MUBD3.0>")
-diverse_ligands_path = os.path.join(MUBD_dir, "Diverse_ligands.csv")
-diverse_ligands_ps_path = os.path.join(MUBD_dir, "Diverse_ligands_PS.csv")
+diverse_ligands_path = os.path.join(ULS_dir, "Diverse_ligands.csv")
+diverse_ligands_ps_path = os.path.join(ULS_dir, "Diverse_ligands_PS.csv")
 diverse_ligands_ps_max_min_path = os.path.join(
-    MUBD_dir, "Diverse_ligands_PS_maxmin.csv")
+    ULS_dir, "Diverse_ligands_PS_maxmin.csv")
 diverse_ligands_sim_max_min_path = os.path.join(
-    MUBD_dir, "Diverse_ligands_sims_maxmin.txt")
+    ULS_dir, "Diverse_ligands_sims_maxmin.txt")
 
 df_PS_maxmin = pd.read_csv(diverse_ligands_ps_max_min_path, index_col=0)
 MW_Ligand_Max = df_PS_maxmin.iloc[0, 0]
@@ -75,8 +75,8 @@ configuration["parameters"]["inception"] = {
 }
 
 configuration["parameters"]["reinforcement_learning"] = {
-    "prior": os.path.join(MUBD_dir, "models/random.prior.new"),
-    "agent": os.path.join(MUBD_dir, "models/random.prior.new"),
+    "prior": "models/random.prior.new",
+    "agent": "models/random.prior.new",
     "n_steps": 2000,
     "sigma": 128,
     "learning_rate": 0.0001,
