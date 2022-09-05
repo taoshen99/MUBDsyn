@@ -72,3 +72,8 @@ The MUBD 3.0 is validated and measured with four basic metrics. We provide `vali
 ```bash
 (MUBD3.0) $ python validate.py
 ```
+
+## Acknowledgements
+We appreciate that authors who published [REINVENT 2.0: An AI Tool for De Novo Drug Design](https://pubs.acs.org/doi/10.1021/acs.jcim.0c00915) make [REINVENT](https://github.com/MolecularAI/Reinvent) open to the community. Our work is based on this tool and please consider citing their work if you use MUBD-DecoyMaker 3.0 in your reserach.
+
+We appreciate that authors who published [Dimorphite-DL: an open-source program for enumerating the ionization states of drug-like small molecules](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0336-9) make [Dimorphite-DL](https://github.com/Sulstice/dimorphite_dl) open to the community. We use this tool to protonate the raw actives and please consider citing their work if you use this function. 
