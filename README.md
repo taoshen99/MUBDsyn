@@ -39,29 +39,28 @@ $ conda env create -f MUBD3.0.yml
 
 ## Usage
 
-`ACM Agonists` is used as a test case to demonstrate how to build MUBD 3.0 with MUBD-DecoyMaker 3.0. All the test files are in the directory of `resources`. 
+`ACM Agonists` is used as a test case to demonstrate how to build MUBD 3.0 with MUBD-DecoyMaker 3.0. All the test files are in the directory of `./resources/`. 
 
 ### Build the unbiased ligand set (ULS 3.0)
-Run `build_uls.py` to process the raw ligand set. This script takes the raw ligands in SMILES representation as input (`raw_actives.smi`) and puts out the unbiased ligand set (`Diverse_ligands.csv`). Four files regarding ligand properties, i.e. `Diverse_ligands_PS.csv`, `Diverse_ligands_PS_maxmin.csv`, `Diverse_ligands_sims_maxmin.txt` and `Diverse_ligands_len.txt`, are also generated.
+Run `build_uls.py` to process the raw ligand set. This script takes the raw ligands in SMILES representation as input (`raw_actives.smi`) and puts out the unbiased ligand set (`Diverse_ligands.csv`). Four more files regarding ligand properties, i.e. `Diverse_ligands_PS.csv`, `Diverse_ligands_PS_maxmin.csv`, `Diverse_ligands_sims_maxmin.txt` and `Diverse_ligands_len.txt`, are also generated and stored in the directory of `./output/ULS/`.
 
 IMPORTANT: Ligand curation, including molecule standardization, salt removal and protonization at a specific range of pH (implemented by [Dimorphite-DL](https://github.com/Sulstice/dimorphite_dl)), is required if the ligands are not curated. For ligand curation, we provide the `--curate` option for `build_uls.py`. Please note the raw ligands in this test case are curated. Also, users may use `--help` option to see all the available options.
 ```bash
 $ conda activate MUBD3.0
-(MUBD3.0) $ python build_uls.py
+(MUBD3.0) $ python build_uls.py --i resources/raw_actives.smi
 ```
 
 ### Generate the potential decoy set
 
-`mk_config.py` writes out the configurations for the generation of MUBD3.0 virtual decoys. We provide `gen_decoys.sh` to iterate over all the ligands and set the configurations specific for each of them. Please make sure the `</path/to/REINVENT>` and `</path/to/MUBD3.0>` in all the scripts are replaced with user-defined directories.
+`mk_config.py` writes out the configurations for the generation of MUBD3.0 virtual decoys. We provide `gen_decoys.sh` to iterate over all the ligands and set the configurations specific for each of them. Please make sure the `</path/to/REINVENT>` in `gen_decoys.sh` is replaced with the user-defined directory.
 ```bash
-$ mkdir output
 $ chmod +x ./gen_decoys.sh
 $ conda activate reinvent.v3.2
 (reinvent.v3.2) $ ./gen_decoys.sh
 ```
 
 ### Build the unbiased decoy set (UDS 3.0)
-The file with the directory of `output/ligand_$idx/results/scaffold_memory.csv` contains the potential decoy set specific for the `ligand_$idx`. The potential decoy set is refined by SMILES curation and structural clustering (script: `curating_clustering.py`). Then the unbiased decoys for each ligand were annotated with the properties and merged  (script: `merge_decoys.py`) to consitute the whole data set (`Final_decoys.csv`). We provide `build_uds.sh` to automatically run the above mentioned scripts.
+The file with the directory of `./output/UDS/auto_train/ligand_*/results/scaffold_memory.csv` contains the potential decoy set specific for the `ligand_*`. The potential decoy set is refined by SMILES curation and structural clustering (script: `curating_clustering.py`). Then the unbiased decoys for each ligand were annotated with the properties and merged  (script: `merge_decoys.py`) to consitute the whole data set (`Final_decoys.csv`). We provide `build_uds.sh` to automatically run the above mentioned scripts.
 ```bash
 $ chmod +x ./build_uds.sh
 $ conda activate MUBD3.0
@@ -69,12 +68,7 @@ $ conda activate MUBD3.0
 ```
 
 ## Validation
-The MUBD 3.0 is validated and measured with four metrics. Please go through the notebook `basic_validation.ipynb` for more details.
-```bash
-$ conda activate MUBD3.0
-(MUBD3.0) $ jupyter notebook
-```
-We also provide `validate.py` to perform the validation and store the  results in the directory of `validation/results/`:
+The MUBD 3.0 is validated and measured with four basic metrics. We provide `validate.py` to perform the validation and store the  results in the directory of `./validation/results/`:
 ```bash
 (MUBD3.0) $ python validate.py
 ```
