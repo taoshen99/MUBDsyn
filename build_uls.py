@@ -10,7 +10,7 @@ from rdkit.Chem.MolStandardize import rdMolStandardize
 
 from dimorphite_dl import DimorphiteDL
 import pandas as pd
-
+import os
 import argparse
 
 
@@ -38,6 +38,10 @@ def main(
         Diverse_ligands_sims_maxmin,
         Diverse_ligands_len,
         **kwargs):
+    
+    ULS_dir = "output/ULS"
+    os.makedirs(ULS_dir)
+
     with open(Ligand_data, 'r') as f:
         List_Smile = [smi.rstrip() for smi in f]
 
@@ -111,7 +115,7 @@ def main(
     print('Total Number of Diverse Ligands:' + str(len(Diverse_Ligands)))
 
     df_diverseligands = pd.DataFrame(Diverse_Ligands, columns=['SMILES'])
-    df_diverseligands.to_csv(Diverse_ligands, index=None)
+    df_diverseligands.to_csv(os.path.join(ULS_dir, Diverse_ligands), index=None)
 
     list_MW = []
     list_NR = []
@@ -183,7 +187,7 @@ def main(
         'LogP_Min']
 
     df_PS_maxmin = pd.DataFrame(a, index=b, columns=['values'])
-    df_PS_maxmin.to_csv(Diverse_ligands_PS_maxmin)
+    df_PS_maxmin.to_csv(os.path.join(ULS_dir, Diverse_ligands_PS_maxmin))
 
     def Normalization(x, Max, Min):
         if Max == Min:
@@ -239,7 +243,7 @@ def main(
                                               'FC_MCS',
                                               'LogP',
                                               'LogP_MCS']]
-    df_Diverseligands_Ps.to_csv(Diverse_ligands_PS, index=None)
+    df_Diverseligands_Ps.to_csv(os.path.join(ULS_dir, Diverse_ligands_PS), index=None)
 
     LL_Smis = []
     fps = [MACCSkeys.GenMACCSKeys(x) for x in suppl_diverseligands]
@@ -252,14 +256,14 @@ def main(
     LL_Sims_Max = max(LL_Smis[i] for i in range(0, len(LL_Smis)))
     LL_Sims_Min = min(LL_Smis[i] for i in range(0, len(LL_Smis)))
 
-    with open(Diverse_ligands_sims_maxmin, 'w') as fp:
+    with open(os.path.join(ULS_dir, Diverse_ligands_sims_maxmin), 'w') as fp:
         fp.write(str(LL_Sims_Max) + '\t')
         fp.write(str(LL_Sims_Min))
 
-    df_DL = pd.read_csv(Diverse_ligands)
+    df_DL = pd.read_csv(os.path.join(ULS_dir, Diverse_ligands))
     s_list = list(df_DL['SMILES'])
     len_s_list = len(s_list)
-    with open(Diverse_ligands_len, 'w') as fl:
+    with open(os.path.join(ULS_dir, Diverse_ligands_len), 'w') as fl:
         fl.write(str(len_s_list))
 
 
