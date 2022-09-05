@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 idx=0
-len=$(cat Diverse_ligands_len.txt)
+len=$(cat output/ULS/Diverse_ligands_len.txt)
 echo start molecular curating and clustering
 
 while [ $idx -lt $len ]

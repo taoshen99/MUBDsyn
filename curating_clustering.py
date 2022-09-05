@@ -68,6 +68,6 @@ def main(input_f, output_f):
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")
     idx = os.environ["idx"]
-    input_ = "output/ligand_" + idx + "/results/scaffold_memory.csv"
-    output_ = "output/ligand_" + idx + "/results/cluster_smi.csv"
+    input_ = "output/UDS/auto_train/ligand_" + idx + "/results/scaffold_memory.csv"
+    output_ = "output/UDS/auto_train/ligand_" + idx + "/results/cluster_smi.csv"
     main(input_, output_)

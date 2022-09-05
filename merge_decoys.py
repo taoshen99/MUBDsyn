@@ -6,17 +6,19 @@ from rdkit.Chem import Lipinski
 from rdkit.Chem import Crippen
 
 import pandas as pd
-
+import os
 
 def main(diverse_ligands_len_path, diverse_ligands_PS_maxmin_path, output):
-    with open(diverse_ligands_len_path, 'r') as f:
+    ULS_dir = "output/ULS"
+    UDS_dir = "output/UDS"
+    with open(os.path.join(ULS_dir, diverse_ligands_len_path), 'r') as f:
         ct = f.read()
 
     length = int(ct.rstrip())
     all_list = []
 
     for i in range(0, length):
-        filename = 'output/ligand_' + str(i) + '/results/cluster_smi.csv'
+        filename = os.path.join(UDS_dir, 'auto_train', 'ligand_' + str(i) + '/results/cluster_smi.csv')
         df = pd.read_csv(filename)
         s_list = list(df['SMILES'])
         all_list.extend(s_list[:39])
@@ -35,7 +37,7 @@ def main(diverse_ligands_len_path, diverse_ligands_PS_maxmin_path, output):
             x = float(x - Min) / float(Max - Min)
             return x
 
-    df_PS_maxmin = pd.read_csv(diverse_ligands_PS_maxmin_path, index_col=0)
+    df_PS_maxmin = pd.read_csv(os.path.join(ULS_dir, diverse_ligands_PS_maxmin_path), index_col=0)
     MW_Ligand_Max = df_PS_maxmin.iloc[0, 0]
     MW_Ligand_Min = df_PS_maxmin.iloc[1, 0]
     NR_Ligand_Max = df_PS_maxmin.iloc[2, 0]
@@ -133,7 +135,7 @@ def main(diverse_ligands_len_path, diverse_ligands_PS_maxmin_path, output):
 
     df_Decoy = pd.DataFrame(dic)
 
-    df_Decoy.to_csv(output, index=False)
+    df_Decoy.to_csv(os.path.join(UDS_dir, output), index=False)
 
 
 if __name__ == "__main__":
