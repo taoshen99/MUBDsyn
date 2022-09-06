@@ -40,10 +40,21 @@ def main(
         **kwargs):
     
     ULS_dir = "output/ULS"
-    os.makedirs(ULS_dir)
-
-    with open(Ligand_data, 'r') as f:
-        List_Smile = [smi.rstrip() for smi in f]
+    
+    try:
+        os.makedirs(ULS_dir)
+    except FileExistsError:
+        pass
+    
+    filename, filetype = os.path.splitext(Ligand_data)
+    if filetype == ".smi":
+        with open(Ligand_data, 'r') as f:
+            List_Smile = [smi.rstrip() for smi in f]
+    elif filetype == ".csv":
+        df_smi = pd.read_csv(Ligand_data)
+        List_Smile = list(df_smi["SMILES"])
+    else:
+        raise Exception("supported input file format: .smi, .csv")
 
     smi_preprocessed = []
 
