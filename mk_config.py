@@ -7,7 +7,12 @@ import pandas as pd
 idx = os.environ["idx"]
 ULS_dir = "output/ULS"
 UDS_dir = "output/UDS/auto_train"
-os.makedirs(UDS_dir)
+
+try:
+    os.makedirs(UDS_dir)
+except FileExistsError:
+    pass
+
 output_dir = os.path.join(UDS_dir, "ligand_" + idx)
 output_json_filename = "ligand_" + idx + ".json"
 active_idx = "active_" + idx
