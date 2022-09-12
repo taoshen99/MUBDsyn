@@ -19,9 +19,10 @@ def main(input_f, output_f):
     for i, smi in enumerate(smi_list_raw):
         if Chem.MolFromSmiles(smi) is not None:
             smi_canonical = Chem.MolToSmiles(Chem.MolFromSmiles(smi))
-            if smi_canonical not in smi_list_canonical:
-                smi_list_canonical.append(smi_canonical)
-                score_list_prep.append(score_list_raw[i])
+            if Chem.MolFromSmiles(smi_canonical) is not None:
+                if smi_canonical not in smi_list_canonical:
+                    smi_list_canonical.append(smi_canonical)
+                    score_list_prep.append(score_list_raw[i])
 
     smi_list_10000 = smi_list_canonical[:10000]
     score_list_10000 = score_list_prep[:10000]
