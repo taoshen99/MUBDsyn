@@ -11,7 +11,7 @@ MUBD-DecoyMaker 3.0 is a brand-new computational software to make Maximal Unbias
 
 Below is how to implement and run MUBD-DecoyMaker 3.0.
 
-![Figure from manuscript](figures/model_1.tif)
+![Figure from manuscript](figures/model_1.png)
 
 ## Requirements
 
