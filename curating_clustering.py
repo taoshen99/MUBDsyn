@@ -17,9 +17,14 @@ def main(input_f, output_f):
     smi_list_canonical = []
     score_list_prep = []
     for i, smi in enumerate(smi_list_raw):
-        if Chem.MolFromSmiles(smi) is not None:
-            smi_canonical = Chem.MolToSmiles(Chem.MolFromSmiles(smi))
-            if Chem.MolFromSmiles(smi_canonical) is not None:
+        mol = Chem.MolFromSmiles(smi)
+        if mol:
+            try:
+                Chem.SanitizeMol(mol) #test whether mol is valid
+            except ValueError:
+                print(f"{smi} is not valid !")
+            else:
+                smi_canonical = Chem.MolToSmiles(mol)
                 if smi_canonical not in smi_list_canonical:
                     smi_list_canonical.append(smi_canonical)
                     score_list_prep.append(score_list_raw[i])
