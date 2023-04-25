@@ -1,5 +1,7 @@
 # MUBD-DecoyMaker<sup>syn</sup>: Making Synthetic Maximal Unbiased Benchmarking Datasets via Deep Reinforcement Learning
 
+[![Anaconda-Server Badge](https://zenodo.org/badge/DOI/10.5281/zenodo.7861685.svg)](https://doi.org/10.5281/zenodo.7861685)
+
 ## Introduction
 
 ![Figure from manuscript](figures/abstract.png)
@@ -71,6 +73,7 @@ $ cd ./MUBD
 $ conda activate MUBD
 (MUBD) $ python validate.py
 ```
+The comprehensive validations performed in the paper can be reproduced according to the scripits and notebooks provided in the directory of `./resources/validation_paper/`. All relevant datasets are available at [Zenodo](https://zenodo.org/record/7861685#.ZEe3w3ZBxPa).
 
 ## Acknowledgements
 We thank the authors of REINVENT [REINVENT 2.0: An AI Tool for De Novo Drug Design](https://pubs.acs.org/doi/10.1021/acs.jcim.0c00915) for making [REINVENT](https://github.com/MolecularAI/Reinvent) open to the community. Our work is based on this computational tool. Please consider citing their work if you use MUBD-DecoyMaker<sup>syn</sup> in your research.
