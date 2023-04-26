@@ -1,6 +1,6 @@
 # MUBD-DecoyMaker<sup>syn</sup>: Making Synthetic Maximal Unbiased Benchmarking Datasets via Deep Reinforcement Learning
 
-[![Anaconda-Server Badge](https://zenodo.org/badge/DOI/10.5281/zenodo.7861685.svg)](https://doi.org/10.5281/zenodo.7861685)
+[![Zenodo Badge](https://zenodo.org/badge/DOI/10.5281/zenodo.7861685.svg)](https://doi.org/10.5281/zenodo.7861685)
 
 ## Introduction
 
@@ -74,6 +74,13 @@ $ conda activate MUBD
 (MUBD) $ python validate.py
 ```
 The comprehensive validations performed in the paper can be reproduced according to the scripits and notebooks provided in the directory of `./resources/validation_paper/`. All relevant datasets are available at [Zenodo](https://zenodo.org/record/7861685#.ZEe3w3ZBxPa).
+
+|            Validaiton                 | Notebooks/Scripts                     | Datasets         |
+|:-------------------------------------:|---------------------------------------|------------------|
+|                  Internal Validation  | int_val_figs.ipynb<br>int_val_tabs.ipynb | datasets_int_val |
+| External Validation<br>(classical_VS) | ext_val_classical_VS_figs.ipynb<br>ext_val_classical_VS_tabs.ipynb | datasets_ext_val_classical_VS |
+| External Validation<br>(ML_VS*)        | ext_val_ML_VS_AVEbias.py<br>ext_val_ML_VS_AVEbias_plt_MUBDreal.ipynb<br>ext_val_ML_VS_AVEbias_plt_MUBDsyn.ipynb | datasets_ext_val_ML_VS |
+*Benchmark results of three ML models are available at [ext_val_ML_VS_benchmark](resources/validation_paper/external_validation/ML_VS/ext_val_ML_VS_benchmark).
 
 ## Acknowledgements
 We thank the authors of REINVENT [REINVENT 2.0: An AI Tool for De Novo Drug Design](https://pubs.acs.org/doi/10.1021/acs.jcim.0c00915) for making [REINVENT](https://github.com/MolecularAI/Reinvent) open to the community. Our work is based on this computational tool. Please consider citing their work if you use MUBD-DecoyMaker<sup>syn</sup> in your research.
