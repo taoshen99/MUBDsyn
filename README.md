@@ -80,6 +80,7 @@ The comprehensive validations performed in the paper can be reproduced according
 |                  Internal Validation  | int_val_figs.ipynb<br>int_val_tabs.ipynb | datasets_int_val |
 | External Validation<br>(classical_VS) | ext_val_classical_VS_figs.ipynb<br>ext_val_classical_VS_tabs.ipynb | datasets_ext_val_classical_VS |
 | External Validation<br>(ML_VS*)        | ext_val_ML_VS_AVEbias.py<br>ext_val_ML_VS_AVEbias_plt_MUBDreal.ipynb<br>ext_val_ML_VS_AVEbias_plt_MUBDsyn.ipynb | datasets_ext_val_ML_VS |
+
 *Benchmark results of three ML models are available at [ext_val_ML_VS_benchmark](resources/validation_paper/external_validation/ML_VS/ext_val_ML_VS_benchmark).
 
 ## Acknowledgements
