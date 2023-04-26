@@ -1,0 +1,3 @@
+number of unique Bemis-Murcko Atomic Frameworks: 1777
+number of final decoys: 1833
+scaffold / decoy ratio: 0.97
