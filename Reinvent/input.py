@@ -41,7 +41,7 @@ if __name__ == "__main__":
     run_config = read_json_file(args.run_config)
 
     gol._init()
-    df_uls = pd.read_csv("../MUBD3.0/output/ULS/Diverse_ligands.csv")
+    df_uls = pd.read_csv("../MUBD/output/ULS/Diverse_ligands.csv")
     smis = list(df_uls["SMILES"])
     mols = [Chem.MolFromSmiles(smi) for smi in smis]
     fps = [MACCSkeys.GenMACCSKeys(mol) for mol in mols]
