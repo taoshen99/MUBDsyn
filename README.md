@@ -1,6 +1,6 @@
 # MUBD-DecoyMaker<sup>syn</sup>: Making Synthetic Maximal Unbiased Benchmarking Datasets via Deep Reinforcement Learning
 
-[![Zenodo Badge](https://zenodo.org/badge/DOI/10.5281/zenodo.7861685.svg)](https://doi.org/10.5281/zenodo.7861685)
+[![Zenodo Badge](https://zenodo.org/badge/DOI/10.5281/zenodo.7943200.svg)](https://doi.org/10.5281/zenodo.7943200)
 
 ## Introduction
 
@@ -73,7 +73,7 @@ $ cd ./MUBD
 $ conda activate MUBD
 (MUBD) $ python validate.py
 ```
-The comprehensive validations performed in the paper can be reproduced according to the scripits and notebooks provided in the directory of `./resources/validation_paper/`. All relevant datasets are available at [Zenodo](https://zenodo.org/record/7861685#.ZEe3w3ZBxPa).
+The comprehensive validations performed in the paper can be reproduced according to the scripits and notebooks provided in the directory of `./resources/validation_paper/`. All relevant datasets are available at [Zenodo](https://zenodo.org/record/7943200#.ZGQ0EXZBxIB).
 
 |            Validaiton                 | Notebooks/Scripts                     | Datasets         |
 |:-------------------------------------:|---------------------------------------|------------------|
