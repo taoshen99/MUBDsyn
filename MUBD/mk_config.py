@@ -94,7 +94,7 @@ configuration["parameters"]["reinforcement_learning"] = {
 
 scoring_function = {
     "name": "custom_sum",
-    "parallel": True,
+    "parallel": False,
 
     "parameters": [
             {
