@@ -87,3 +87,25 @@ The comprehensive validations performed in the paper can be reproduced according
 We thank the authors of REINVENT [REINVENT 2.0: An AI Tool for De Novo Drug Design](https://pubs.acs.org/doi/10.1021/acs.jcim.0c00915) for making [REINVENT](https://github.com/MolecularAI/Reinvent) open to the community. Our work is based on this computational tool. Please consider citing their work if you use MUBD-DecoyMaker<sup>syn</sup> in your research.
 
 We also appreciate the developers of [Dimorphite-DL](https://github.com/Sulstice/dimorphite_dl). We use that computational tool to protonate raw actives. It is highly recommended to cite their publication [Dimorphite-DL: an open-source program for enumerating the ionization states of drug-like small molecules](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0336-9), if you use it in your work. 
+
+## Citation
+
+If you use MUBD<sup>syn</sup> or related materials, please cite:
+
+Shen, T.; Li, S.; Wang, S. X.; Wang, D.; Wu, S.; Xia, J.; Zhang, L. *Deep Reinforcement Learning Enables Better Bias Control in Benchmark for Virtual Screening*. 2023, 2023.11.03.565594. bioRxiv. [DOI: 10.1101/2023.11.03.565594](https://www.biorxiv.org/content/10.1101/2023.11.03.565594v1).
+
+or BibTex:
+
+```bibtex
+@article {Shen2023.11.03.565594,
+	author = {Tao Shen and Shan Li and Xiang Simon Wang and Dongmei Wang and Song Wu and Jie Xia and Liangren Zhang},
+	title = {Deep Reinforcement Learning Enables Better Bias Control in Benchmark for Virtual Screening},
+	elocation-id = {2023.11.03.565594},
+	year = {2023},
+	doi = {10.1101/2023.11.03.565594},
+	publisher = {Cold Spring Harbor Laboratory},
+	URL = {https://www.biorxiv.org/content/early/2023/11/05/2023.11.03.565594},
+	eprint = {https://www.biorxiv.org/content/early/2023/11/05/2023.11.03.565594.full.pdf},
+	journal = {bioRxiv}
+}
+```
