@@ -92,20 +92,19 @@ We also appreciate the developers of [Dimorphite-DL](https://github.com/Sulstice
 
 If you use MUBD<sup>syn</sup> or related materials, please cite:
 
-Shen, T.; Li, S.; Wang, S. X.; Wang, D.; Wu, S.; Xia, J.; Zhang, L. *Deep Reinforcement Learning Enables Better Bias Control in Benchmark for Virtual Screening*. 2023, 2023.11.03.565594. bioRxiv. [DOI: 10.1101/2023.11.03.565594](https://www.biorxiv.org/content/10.1101/2023.11.03.565594v1).
+Shen, T.; Li, S.; Wang, X. S.; Wang, D.; Wu, S.; Xia, J.; Zhang, L., Deep Reinforcement Learning Enables Better Bias Control in Benchmark for Virtual Screening. *Comput. Biol. Med.* 2024, 108165.
 
 or BibTex:
 
 ```bibtex
-@article {Shen2023.11.03.565594,
-	author = {Tao Shen and Shan Li and Xiang Simon Wang and Dongmei Wang and Song Wu and Jie Xia and Liangren Zhang},
-	title = {Deep Reinforcement Learning Enables Better Bias Control in Benchmark for Virtual Screening},
-	elocation-id = {2023.11.03.565594},
-	year = {2023},
-	doi = {10.1101/2023.11.03.565594},
-	publisher = {Cold Spring Harbor Laboratory},
-	URL = {https://www.biorxiv.org/content/early/2023/11/05/2023.11.03.565594},
-	eprint = {https://www.biorxiv.org/content/early/2023/11/05/2023.11.03.565594.full.pdf},
-	journal = {bioRxiv}
+@article{SHEN2024108165,
+title = {Deep Reinforcement Learning Enables Better Bias Control in Benchmark for Virtual Screening},
+journal = {Computers in Biology and Medicine},
+pages = {108165},
+year = {2024},
+issn = {0010-4825},
+doi = {https://doi.org/10.1016/j.compbiomed.2024.108165},
+url = {https://www.sciencedirect.com/science/article/pii/S001048252400249X},
+author = {Tao Shen and Shan Li and Xiang Simon Wang and Dongmei Wang and Song Wu and Jie Xia and Liangren Zhang}
 }
 ```
